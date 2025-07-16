@@ -253,6 +253,15 @@ h2 {
   }
 }
 
+@keyframes slideReverse {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .logos {
   overflow: hidden;
   background: var(--white);
@@ -290,9 +299,18 @@ h2 {
   animation: 35s slide infinite linear;
 }
 
+.logos-slide.reverse {
+  display: inline-block;
+  animation: 35s slideReverse infinite linear;
+}
+
 .logos-slide img {
   height: 150px;
   margin: 0 40px;
+}
+
+.logos-top {
+  margin-bottom: 20px;
 }
 
 .member {
