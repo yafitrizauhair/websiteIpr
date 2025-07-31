@@ -29,6 +29,7 @@ body {
   font-family: "Roboto", serif;
   background-color: var(--white);
   color: var(--overlay);
+  overflow-x: hidden;
 }
 
 h2 {
@@ -727,6 +728,11 @@ h5 {
     justify-items: right;
     padding: 24px;
   }
+  .ctoText {
+    max-width: 813px;
+    width: 100%;
+  }
+
   .ctoText > h2 {
     font-size: 1.5rem;
   }
@@ -791,6 +797,8 @@ h5 {
   }
   .member-text {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .button {
@@ -803,21 +811,37 @@ h5 {
     margin-top: 24px;
     counter-reset: list-counter;
   }
-  .member-text li {
+  /* .member-text li {
     display: flex;
     align-items: flex-start;
     counter-increment: list-counter;
+  } */
+  .member-text li {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
   }
+  .member-text li p {
+    flex: 1 1 auto;
+    word-break: break-word;
+  }
+
   .member-text li::before {
     content: counter(list-counter) ".";
     min-width: 16px;
     text-align: right;
     margin-right: 10px;
   }
-  .member-text li p {
+  /* .member-text li p {
     margin: 0;
     font-size: 18px;
+  } */
+  .left-member {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
+
   .contact-us {
     padding: 16px;
   }
