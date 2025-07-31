@@ -1,10 +1,10 @@
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-  max-width: 100%;
 }
-
 :root {
   --primaryColor: #23348a;
   --secondaryColor: #4060ff;
@@ -302,20 +302,23 @@ h2 {
 }
 
 .logos-slide {
-  display: inline-flex; /* Ganti dari inline-block agar fleksibel */
-  min-width: 100%; /* Menjamin satu baris penuh */
+  display: inline-flex;
+  width: max-content; /* GANTI INI */
   animation: 35s slide infinite linear;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .logos-slide.reverse {
   display: inline-flex;
-  min-width: 100%;
+  width: max-content; /* GANTI INI JUGA */
   animation: 35s slideReverse infinite linear;
 }
 
 .logos-slide img {
   height: 150px;
   margin: 0 40px;
+  flex-shrink: 0; /* JANGAN mengecil */
 }
 
 .logos-top {
