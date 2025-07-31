@@ -262,12 +262,19 @@ h2 {
   }
 }
 
-.logos {
+/* .logos {
   overflow: hidden;
   background: var(--white);
   white-space: nowrap;
   position: relative;
   padding: 50px 0;
+} */
+
+.logos {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .logos:before,
@@ -295,12 +302,14 @@ h2 {
 }
 
 .logos-slide {
-  display: inline-block;
+  display: inline-flex; /* Ganti dari inline-block agar fleksibel */
+  min-width: 100%; /* Menjamin satu baris penuh */
   animation: 35s slide infinite linear;
 }
 
 .logos-slide.reverse {
-  display: inline-block;
+  display: inline-flex;
+  min-width: 100%;
   animation: 35s slideReverse infinite linear;
 }
 
@@ -312,6 +321,17 @@ h2 {
 .logos-top {
   margin-bottom: 20px;
 }
+
+#logos1 .logos-slide {
+  animation-delay: 0s;
+}
+#logos2 .logos-slide.reverse {
+  animation-delay: 5s;
+}
+#logos3 .logos-slide {
+  animation-delay: 2s;
+}
+/* dst */
 
 .member {
   display: grid;
