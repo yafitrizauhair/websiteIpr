@@ -35,26 +35,6 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// const slides = ["slides1", "slides2"];
-// const logos = ["logos1", "logos2"];
-
-// var copy = document.querySelector(".logos-slide").cloneNode(true);
-// document.querySelector(".logos").appendChild(copy);
-
-// var copy2 = document.getElementById("slides2").cloneNode(true);
-// document.getElementById("logos2").appendChild(copy2);
-
-// const copy3 = document.getElementById("slides3").cloneNode(true);
-// document.getElementById("logos3").appendChild(copy3);
-
-// const copy4 = document.getElementById("slides4").cloneNode(true);
-// document.getElementById("logos4").appendChild(copy4);
-// const copy5 = document.getElementById("slides5").cloneNode(true);
-// document.getElementById("logos5").appendChild(copy5);
-
-// const copy6 = document.getElementById("slides6").cloneNode(true);
-// document.getElementById("logos6").appendChild(copy6);
-
 function cloneSliderWithDirection(id, reverse = false) {
   const original = document.getElementById(id);
   if (!original) return;
@@ -73,3 +53,36 @@ cloneSliderWithDirection("slides3", false); // kanan
 cloneSliderWithDirection("slides4", true); // kiri
 cloneSliderWithDirection("slides5", false); // kanan
 cloneSliderWithDirection("slides6", true); // kiri
+
+document.getElementById("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const data = {
+    nama: this.nama.value,
+    perusahaan: this.perusahaan.value,
+    alamat: this.alamat.value,
+    telepon: this.telepon.value,
+    email: this.email.value,
+    subjek: this.subjek.value,
+    pesan: this.pesan.value,
+  };
+
+  fetch(
+    "https://script.google.com/macros/s/AKfycbz1Z6oCoD4SM2EN32JouoasBgZYEC6BCGTudlL2arlTINa1i7q4z0UBi1UTSK-5oLD4/exec",
+    {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((response) => response.text())
+    .then((data) => {
+      alert("Pesan berhasil dikirim!");
+    })
+    .catch((error) => {
+      alert("Gagal mengirim.");
+      console.error(error);
+    });
+});
