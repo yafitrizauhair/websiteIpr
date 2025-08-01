@@ -291,5 +291,7 @@ if (empty($registrations)) {
             <?php endif; ?>
         </div>
     </div>
+
+     
 </body>
 </html>

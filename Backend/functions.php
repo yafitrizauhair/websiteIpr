@@ -53,6 +53,44 @@
         return query($query);
     }
 
+    function tambahAdmin($data) {
+        global $conn;
+        
+        // Sanitize and validate input
+        $usernameAdmin = strtolower(stripslashes($data["usernameadmin"]));
+        $passwordAdmin = mysqli_real_escape_string($conn, $data["passwordadmin"]);
+        $securityQuestion = mysqli_real_escape_string($conn, $data["question"]);
+        $securityAnswer = mysqli_real_escape_string($conn, $data["answer"]);
+        
+        // Check if username already exists
+        // $result = mysqli_query($conn, "SELECT username FROM admins WHERE username = '$usernameAdmin'");
+        // if (mysqli_fetch_assoc($result)) {
+        //     echo "<script>
+        //             alert('Username sudah terdaftar!');
+        //          </script>";
+        //     return false;
+        // }
+        
+        // Check if passwords match
+        // if ($password !== $confirm_password) {
+        //     echo "<script>
+        //             alert('Password dan konfirmasi password tidak cocok!');
+        //          </script>";
+        //     return false;
+        // }
+        
+        // Hash the password
+        $passwordAdmin = password_hash($passwordAdmin, PASSWORD_DEFAULT);
+        $securityAnswer = password_hash($securityAnswer, PASSWORD_DEFAULT);
+        $securityAnswer = password_hash($securityAnswer, PASSWORD_DEFAULT);
+        
+        // Insert new admin into database
+        mysqli_query($conn, "INSERT INTO admins (username, password, security_question, security_answer) 
+                  VALUES ('$usernameAdmin', '$passwordAdmin', '$securityQuestion', '$securityAnswer')");
+        
+        return mysqli_affected_rows($conn);
+    }
+
     function tambah($data) {
         global $conn;
         
@@ -293,7 +331,7 @@
         // hashing password
         $password = password_hash($password, PASSWORD_DEFAULT);
         //masukan kedalam data base
-        mysqli_query($conn, "INSERT INTO admins VALUES ('', '$username', '$password')");
+        mysqli_query($conn, "INSERT INTO admins VALUES ('', '$username', '$password', '', '')");
         return mysqli_affected_rows($conn);
     }
 

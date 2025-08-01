@@ -812,16 +812,6 @@ h5 {
     word-break: break-word;
   }
 
-  /* .member-text li::before {
-    content: counter(list-counter) ".";
-    min-width: 16px;
-    text-align: right;
-    margin-right: 10px;
-  } */
-  /* .member-text li p {
-    margin: 0;
-    font-size: 18px;
-  } */
   .left-member {
     width: 100%;
     max-width: 100%;
