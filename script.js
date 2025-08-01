@@ -54,35 +54,35 @@ cloneSliderWithDirection("slides4", true); // kiri
 cloneSliderWithDirection("slides5", false); // kanan
 cloneSliderWithDirection("slides6", true); // kiri
 
-document.getElementById("form").addEventListener("submit", function (e) {
-  e.preventDefault();
+// document.getElementById("form").addEventListener("submit", function (e) {
+//   e.preventDefault();
 
-  const data = {
-    nama: this.nama.value,
-    perusahaan: this.perusahaan.value,
-    alamat: this.alamat.value,
-    telepon: this.telepon.value,
-    email: this.email.value,
-    subjek: this.subjek.value,
-    pesan: this.pesan.value,
-  };
+//   const data = {
+//     nama: this.nama.value,
+//     perusahaan: this.perusahaan.value,
+//     alamat: this.alamat.value,
+//     telepon: this.telepon.value,
+//     email: this.email.value,
+//     subjek: this.subjek.value,
+//     pesan: this.pesan.value,
+//   };
 
-  fetch(
-    "https://script.google.com/macros/s/AKfycbz1Z6oCoD4SM2EN32JouoasBgZYEC6BCGTudlL2arlTINa1i7q4z0UBi1UTSK-5oLD4/exec",
-    {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  )
-    .then((response) => response.text())
-    .then((data) => {
-      alert("Pesan berhasil dikirim!");
-    })
-    .catch((error) => {
-      alert("Gagal mengirim.");
-      console.error(error);
-    });
-});
+//   fetch(
+//     "https://script.google.com/macros/s/AKfycbzOrgc9ii6D_WN5SdHrfyI6ZEUkodxc7wC8JaN-6voB-04L8536zxOdF0KG1_RmwGG3/exec",
+//     {
+//       method: "POST",
+//       body: JSON.stringify(data),
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     }
+//   )
+//     .then((response) => response.text())
+//     .then((data) => {
+//       alert("Pesan berhasil dikirim!");
+//     })
+//     .catch((error) => {
+//       alert("Gagal mengirim.");
+//       console.error(error);
+//     });
+// });
